@@ -1,42 +1,39 @@
 __build_info:
   rime_version: 1.8.5
   timestamps:
-    default: 1675621991
-    default.custom: 1694380307
-    key_bindings: 1675621991
-    key_bindings.custom: 0
-    punctuation: 1675621991
-    punctuation.custom: 0
+    default: 1695613651
+    default.custom: 0
 ascii_composer:
   good_old_caps_lock: true
   switch_key:
-    Caps_Lock: commit_code
+    Caps_Lock: clear
     Control_L: noop
     Control_R: noop
     Shift_L: commit_code
-    Shift_R: commit_code
-config_version: 0.40
+    Shift_R: noop
+config_version: "2023-08-07"
 key_binder:
   bindings:
+    - {accept: "Shift+Tab", send: "Shift+Left", when: composing}
     - {accept: Tab, send: "Shift+Right", when: composing}
-    - {accept: minus, send: Page_Up, when: paging}
+    - {accept: "Alt+Left", send: "Shift+Left", when: composing}
+    - {accept: "Alt+Right", send: "Shift+Right", when: composing}
+    - {accept: minus, send: Page_Up, when: has_menu}
     - {accept: equal, send: Page_Down, when: has_menu}
-    - {accept: comma, send: Page_Up, when: paging}
-    - {accept: period, send: Page_Down, when: has_menu}
-    - {accept: bracketleft, send: Page_Up, when: paging}
-    - {accept: bracketright, send: Page_Down, when: has_menu}
+    - {accept: "Control+Shift+3", toggle: ascii_punct, when: always}
+    - {accept: "Control+Shift+4", toggle: traditionalization, when: always}
     - {accept: "Control+k", send: Page_Up, when: paging}
     - {accept: "Control+j", send: Page_Down, when: has_menu}
     - {accept: "Control+h", send: Left, when: composing}
     - {accept: "Control+l", send: Right, when: composing}
-    - {accept: "Control+b", send: BackSpace, when: composing}
     - {accept: "Control+p", send: Left, when: composing}
     - {accept: "Control+n", send: Right, when: composing}
-    - {accept: "Control+Shift+4", toggle: simplification, when: always}
     - {accept: "Control+b", send: Left, when: composing}
     - {accept: "Control+f", send: Right, when: composing}
+  select_first_character: bracketleft
+  select_last_character: bracketright
 menu:
-  page_size: 9
+  page_size: 5
 punctuator:
   full_shape:
     " ": {commit: "　"}
@@ -73,62 +70,61 @@ punctuator:
     "}": ["』", "〗", "｝"]
     "~": "～"
   half_shape:
-    "!": {commit: "！"}
+    "!": "！"
     "\"": {pair: ["“", "”"]}
     "#": "#"
-    "$": ["￥", "$", "€", "£", "¥", "¢", "¤"]
-    "%": ["%", "％", "°", "℃"]
+    "$": "¥"
+    "%": "%"
     "&": "&"
     "'": {pair: ["‘", "’"]}
     "(": "（"
     ")": "）"
-    "*": ["*", "＊", "·", "・", "×", "※", "❂"]
+    "*": "*"
     "+": "+"
-    ",": {commit: "，"}
+    ",": "，"
     "-": "-"
-    .: {commit: "。"}
-    "/": ["、", "/", "／", "÷"]
-    ":": {commit: "："}
-    ";": {commit: "；"}
-    "<": ["《", "〈", "«", "‹"]
+    .: "。"
+    "/": "/"
+    ":": "："
+    ";": "；"
+    "<": "《"
     "=": "="
-    ">": ["》", "〉", "»", "›"]
-    "?": {commit: "？"}
+    ">": "》"
+    "?": "？"
     "@": "@"
-    "[": ["「", "【", "〔", "［"]
-    "\\": ["、", "\\", "＼"]
-    "]": ["」", "】", "〕", "］"]
-    "^": {commit: "……"}
+    "[": "【"
+    "\\": "、"
+    "]": "】"
+    "^": "……"
     _: "——"
     "`": "`"
-    "{": ["『", "〖", "｛"]
-    "|": ["·", "|", "｜", "§", "¦"]
-    "}": ["』", "〗", "｝"]
-    "~": ["~", "～"]
+    "{": "「"
+    "|": "|"
+    "}": "」"
+    "~": "~"
 recognizer:
   patterns:
     email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
 schema_list:
-  - schema: luna_pinyin_simp
-  - schema: double_pinyin_flypy
+  - schema: rime_ice
   - schema: double_pinyin
-  - schema: numbers
+  - schema: double_pinyin_abc
+  - schema: double_pinyin_mspy
+  - schema: double_pinyin_sogou
+  - schema: double_pinyin_flypy
+  - schema: double_pinyin_ziguang
 switcher:
   abbreviate_options: true
-  caption: "〔方案選單〕"
+  caption: "「方案选单」"
   fold_options: true
   hotkeys:
+    - F4
     - "Control+grave"
     - "Control+Shift+grave"
-    - F4
-  option_list_separator: "／"
+  option_list_separator: " / "
   save_options:
-    - full_shape
     - ascii_punct
-    - simplification
-    - extended_charset
-    - zh_hant
-    - zh_hans
-    - zh_hant_tw
+    - full_shape
+    - traditionalization
+    - emoji
