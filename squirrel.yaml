@@ -22,7 +22,6 @@ chord_duration: 0.1  # seconds
 # options: always | never | appropriate
 show_notifications_when: appropriate
 
-
 # ascii_mode、inline、no_inline、vim_mode 等等设定
 # 可参考 /Library/Input Methods/Squirrel.app/Contents/SharedSupport/squirrel.yaml
 app_options:
@@ -40,20 +39,30 @@ style:
   # horizontal: true # always use horizontal layout
   text_orientation: horizontal  # horizontal | vertical
   inline_preedit: true
-  corner_radius: 10
+  # corner_radius: 10
   hilited_corner_radius: 0
-  border_height: 0
-  border_width: 0
+  # border_height: 0
+  # border_width: 0
   line_spacing: 5
   spacing: 10
   #candidate_format: '%c. %@'
   #base_offset: 6
   font_face: 'Lucida Grande'
-  font_point: 17
+  # font_point: 17
   #label_font_face: 'Lucida Grande'
-  label_font_point: 18
+  # label_font_point: 18
   #comment_font_face: 'Lucida Grande'
   comment_font_point: 18
+
+  # My custom layout
+  horizontal: true
+  candidate_format: '%c %@'
+  corner_radius: 6
+  border_height: 6
+  border_width: 6
+  font_point: 16
+  label_font_point: 12
+
 
 
 # 皮肤列表
@@ -189,17 +198,10 @@ preset_color_schemes:
     hilited_back_color: 0x444444
     hilited_candidate_label_color: 0xfafafa
     hilited_candidate_text_color: 0xfafafa
-    hilited_candidate_back_color: 0xd4bc00
+    # My custom colour
+    hilited_candidate_back_color: 0xA6A257 #revert RGB sequence #0xd4bc00
     comment_text_color: 0x808080
     hilited_comment_text_color: 0x444444
-    # My custom layout
-    horizontal: true
-    candidate_format: '%c %@'
-    corner_radius: 6
-    border_height: 6
-    border_width: 6
-    font_point: 16
-    label_font_point: 12
 
   purity_of_form:
     name: 純粹的形式／Purity of Form
